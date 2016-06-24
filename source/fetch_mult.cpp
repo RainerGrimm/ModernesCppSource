@@ -1,10 +1,12 @@
+// fetch_mult.cpp
+
 #include <atomic>
 #include <iostream>
 
 template <typename T>
 T fetch_mult(std::atomic<T>& shared, T mult){
   T oldValue= shared.load();
-  shared.compare_exchange_strong(oldValue, oldValue * mult);
+  while (!shared.compare_exchange_strong(oldValue, oldValue * mult));
   return oldValue;
 }
 
