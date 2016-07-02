@@ -1,3 +1,5 @@
+// producerConsumer.cpp
+
 #include <atomic>
 #include <iostream>
 #include <string>
@@ -8,12 +10,12 @@ std::atomic<bool> ready(false);
 
 void consumer(){
   while(!ready.load()){}
-  std::cout<< work << std::endl;   // done
+  std::cout<< work << std::endl;    
 }
 
 void producer(){
   work= "done";
-  ready=true;
+  ready=true; 
 }
 
 int main(){
