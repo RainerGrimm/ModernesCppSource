@@ -7,22 +7,20 @@
 #include <cstdlib>
 #include <iostream>
 #include <new>
-#include <string>
 #include <array>
 
 int const MY_SIZE= 10;
 
+int counter= 0;
+
 std::array<void* ,MY_SIZE> myAlloc{nullptr,};
 
-
 void* newImpl(std::size_t sz,char const* file, int line){
-    static int counter{};
     void* ptr= std::malloc(sz);
     std::cout << file << ": " << line << " " <<  ptr << std::endl;
     myAlloc.at(counter++)= ptr;
     return ptr;
 }
-
 
 void* operator new(std::size_t sz,char const* file, int line){  
     return newImpl(sz,file,line);
