@@ -1,10 +1,12 @@
 // overloadOperatorNewAndDelete.cpp
 
-// #include "myNew.hpp"
-// #include "myNew2.hpp"
-#include "myNew3.hpp"
+#include "myNew4.hpp"
+// #include "myNew5.hpp"
+
+#define new new(__FILE__, __LINE__)
 
 #include <iostream>
+#include <new>
 #include <string>
 
 class MyClass{
@@ -15,7 +17,6 @@ class MyClass2{
   int five= 5;
   std::string s= "hello";
 };
-
 
 int main(){
     
@@ -31,7 +32,9 @@ int main(){
     delete myClass;
     delete myClass2;
     
-  getInfo();
+    dummyFunction();
+    
+    getInfo();
     
 }
     
