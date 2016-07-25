@@ -34,6 +34,8 @@ int main(){
     t1.join();
     t2.join();
     
+    delete ptr;
+    
     std::cout << std::endl;
     
 }
