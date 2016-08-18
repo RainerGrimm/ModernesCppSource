@@ -1,20 +1,20 @@
-// ongoingOptimizationSequentialConsistency.cpp
+// ongoingOptimizationSequentialConsistencyBroken.cpp
 
 #include <atomic>
 #include <iostream>
 #include <thread>
 
-std::atomic<int> x{0};
+int x{0};
 std::atomic<int> y{0};
 
 void writing(){  
-  x.store(2000);  
+  x= 2000;
   y.store(11);
 }
 
 void reading(){  
   std::cout << y.load() << " ";  
-  std::cout << x.load() << std::endl;
+  std::cout << x << std::endl;
 }
 
 int main(){
