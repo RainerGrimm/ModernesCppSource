@@ -1,12 +1,10 @@
 // overloadOperatorNewAndDelete.cpp
 
-#include "myNew4.hpp"
-// #include "myNew5.hpp"
-
-#define new new(__FILE__, __LINE__)
+// #include "myNew.hpp"
+// #include "myNew2.hpp"
+#include "myNew3.hpp"
 
 #include <iostream>
-#include <new>
 #include <string>
 
 class MyClass{
@@ -18,23 +16,22 @@ class MyClass2{
   std::string s= "hello";
 };
 
+
 int main(){
     
-    int* myInt= new int(1998);
-    double* myDouble= new double(3.14);
-    double* myDoubleArray= new double[2]{1.1,1.2};
+  int* myInt= new int(1998);
+  double* myDouble= new double(3.14);
+  double* myDoubleArray= new double[2]{1.1,1.2};
     
-    MyClass* myClass= new MyClass;
-    MyClass2* myClass2= new MyClass2;
+  MyClass* myClass= new MyClass;
+  MyClass2* myClass2= new MyClass2;
     
-    delete myDouble;
-    delete [] myDoubleArray;
-    delete myClass;
-    delete myClass2;
+  delete myDouble;
+  delete [] myDoubleArray;
+  delete myClass;
+  delete myClass2;
     
-    dummyFunction();
-    
-    getInfo();
+  getInfo();
     
 }
     
