@@ -29,5 +29,5 @@ int main(){
     if (!myEmptyInt){
         std::cout << "myEmptyInt.value_or(2017):" << myEmptyInt.value_or(2017) << std::endl;
     }
-   
 }
+   
