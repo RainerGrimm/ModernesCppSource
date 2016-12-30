@@ -1,5 +1,5 @@
 // moveAlgorithm.cpp
-
+#include <numeric>
 #include <algorithm>
 #include <iostream>
 #include <utility>
