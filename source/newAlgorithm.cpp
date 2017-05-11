@@ -36,14 +36,9 @@ int hpx_main(){
   
   std::vector<int> resVec2{1, 2, 3, 4, 5, 6, 7, 8, 9};
   
-  /*
-  std::inclusive_scan(std::execution::par,                                       // 4 
+  hpx::parallel::inclusive_scan(hpx::parallel::execution::par,                                       // 5 
                       resVec2.begin(), resVec2.end(), resVec2.begin(),        
                       [](int fir, int sec){ return fir * sec; }, 1);
-   */
-  hpx::parallel::inclusive_scan(hpx::parallel::execution::par,                   // 5     
-                               resVec2.begin(), resVec2.end(), resVec2.begin(), 1,
-                               [](int fir, int sec){ return fir * sec; });
   
   hpx::cout << "inclusive_scan: ";
   for (auto v: resVec2) hpx::cout << v << " ";
@@ -83,17 +78,12 @@ int hpx_main(){
                     [](auto fir, auto sec){ return fir + ":" + sec; });
   
   hpx::cout << "reduce: " << res << hpx::endl;
-  
-  /*
-  std::size_t res7 = std::parallel::transform_reduce(std::execution::par,        // 10
+ 
+                                                                                 // 11
+  std::size_t res7 = hpx::parallel::parallel::transform_reduce(hpx::parallel::execution::par,        
                      strVec2.begin(), strVec2.end(), 
                      [](std::string s){ return s.length(); }, 
-                     0, [](std::size_t a, std::size_t b){ return a + b; });
-  */                                                                             // 11
-  std::size_t res7 = hpx::parallel::transform_reduce(hpx::parallel::execution::par,   
-                     strVec2.begin(), strVec2.end(), 0,
-                     [](std::size_t a, std::size_t b){ return a + b; },
-                     [](std::string s){ return s.length(); });
+                     0, [](std::size_t a, std::size_t b){ return a + b; });                                                                          
     
   hpx::cout << "transform_reduce: " << res7 << hpx::endl;
   
