@@ -4,9 +4,9 @@
 #include <iostream>
 
 template <typename T>
-T fetch_mult(std::atomic<T>& shared, T mult){
-  T oldValue= shared.load();
-  while (!shared.compare_exchange_strong(oldValue, oldValue * mult));
+T fetch_mult(std::atomic<T>& shared, T mult){                          // 1
+  T oldValue = shared.load();                                          // 2
+  while (!shared.compare_exchange_strong(oldValue, oldValue * mult));  // 3
   return oldValue;
 }
 
