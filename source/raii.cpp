@@ -20,11 +20,11 @@ int main(){
 
   std::cout << std::endl;
 
-  ResourceGuard resGuard1{"memoryBlock1"};
+  ResourceGuard resGuard1{"memoryBlock1"};                  // (1)
 
   std::cout << "\nBefore local scope" << std::endl;
   {
-    ResourceGuard resGuard2{"memoryBlock2"};
+    ResourceGuard resGuard2{"memoryBlock2"};                // (2)
   }
   std::cout << "After local scope" << std::endl;
   
@@ -33,7 +33,7 @@ int main(){
   
   std::cout << "\nBefore try-catch block" << std::endl;
   try{
-      ResourceGuard resGuard3{"memoryBlock3"};
+      ResourceGuard resGuard3{"memoryBlock3"};              // (3)
       throw std::bad_alloc();
   }   
   catch (std::bad_alloc& e){
