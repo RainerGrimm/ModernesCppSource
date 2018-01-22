@@ -17,7 +17,7 @@ std::array<void* ,MY_SIZE> myAlloc{nullptr,};
 
 void* newImpl(std::size_t sz,char const* file, int line){
     void* ptr= std::malloc(sz);
-    std::cout << file << ": " << line << " " <<  ptr << std::endl;
+    std::cerr << file << ": " << line << " " <<  ptr << std::endl;
     myAlloc.at(counter++)= ptr;
     return ptr;
 }

@@ -15,7 +15,7 @@ std::vector<void*> myAlloc;
 void* newImpl(std::size_t sz,char const* file, int line){
     static int counter{};
     void* ptr= std::malloc(sz);
-    std::cout << file << ": " << line << " " <<  ptr << std::endl;
+    std::cerr << file << ": " << line << " " <<  ptr << std::endl;
     myAlloc.push_back(ptr);
     return ptr;
 }

@@ -18,7 +18,7 @@ void* operator new(std::size_t sz){
     static int counter{};
     void* ptr= std::malloc(sz);
     myAlloc.at(counter++)= ptr;
-    std::cout << "Addr.: " << ptr << " size: " << sz << std::endl;
+    std::cerr << "Addr.: " << ptr << " size: " << sz << std::endl;
     return ptr;
 }
 
