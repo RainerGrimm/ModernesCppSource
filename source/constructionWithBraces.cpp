@@ -22,7 +22,7 @@ public:
 class MyVector2{
 public:
     MyVector2(int, int){
-        std::cout << "MyVector(std::initalizer_list<int>)" << std::endl;
+        std::cout << "MyVector(int, int)" << std::endl;
     }
 };
 
