@@ -1,0 +1,18 @@
+// dataRaceOnXCppMem.txt
+
+int main(){
+  int x = 0;
+  atomic_int y = 0;
+  
+  {{{ 
+    {
+      x = 2000;
+      y.store(11, memory_order_release);
+    }
+  ||| 
+    {
+      y.load(memory_order_acquire);
+      x;
+    }
+  }}}
+}
