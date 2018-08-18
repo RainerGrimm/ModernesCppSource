@@ -1,12 +1,12 @@
 // optional.cpp
 
-#include <experimental/optional>
+#include <optional>
 #include <iostream>
 #include <vector>
 
-std::experimental::optional<int> getFirst(const std::vector<int>& vec){
-  if ( !vec.empty() ) return std::experimental::optional<int>(vec[0]);
-  else return std::experimental::optional<int>();
+std::optional<int> getFirst(const std::vector<int>& vec){
+  if ( !vec.empty() ) return std::optional<int>(vec[0]);
+  else return std::optional<int>();
 }
 
 int main(){
