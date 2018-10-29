@@ -15,7 +15,7 @@ void getPrimaryTypeCategory(){
   cout << "is_floating_point<T>::value: " << is_floating_point<T>::value << endl;
   cout << "is_array<T>::value: " << is_array<T>::value << endl;
   cout << "is_pointer<T>::value: " << is_pointer<T>::value << endl;
-  cout << "is_reference<T>::value: " << is_reference<T>::value << endl;
+  cout << "is_null_pointer<T>::value: " << is_null_pointer<T>::value << endl;
   cout << "is_member_object_pointer<T>::value: " << is_member_object_pointer<T>::value << endl;
   cout << "is_member_function_pointer<T>::value: " << is_member_function_pointer<T>::value << endl;
   cout << "is_enum<T>::value: " << is_enum<T>::value << endl;
@@ -36,7 +36,7 @@ int main(){
     getPrimaryTypeCategory<double>();
     getPrimaryTypeCategory<int []>();
     getPrimaryTypeCategory<int*>();
-    getPrimaryTypeCategory<int&>();
+    getPrimaryTypeCategory<std::nullptr_t>();
     struct A{
         int a;
         int f(double){return 2011;}
