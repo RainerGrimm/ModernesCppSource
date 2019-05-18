@@ -19,10 +19,12 @@ int main(){
   
   std::vector<int> cppVec={1,2,3,4,5,6,7,8,9,10};
   
-  std::cout << "sizeof(cArr)= " << sizeof(cArr) << std::endl;  
+  std::cout << "sizeof(cArr)= " << sizeof(cArr) << std::endl;               // (1)
   
-  std::cout << "sizeof(cppArr)= " << sizeof(cppArr) << std::endl;
-  
+  std::cout << "sizeof(cppArr)= " << sizeof(cppArr) << std::endl;           // (2)
+   
+                                                                            // (3)
+                                                                            
   std::cout << "sizeof(cppVec) = "   << sizeof(cppVec) + sizeof(int)*cppVec.capacity() << std::endl;
   std::cout << "               = sizeof(cppVec): " << sizeof(cppVec) << std::endl;
   std::cout << "               + sizeof(int)* cppVec.capacity(): "   << sizeof(int)* cppVec.capacity() << std::endl;
