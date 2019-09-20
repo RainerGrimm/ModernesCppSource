@@ -2,32 +2,30 @@
 
 class Base {
 
-  void func1();
-  virtual void func2(float);
-  virtual void func3() const;
-  virtual long func4(int);
+    void func1();
+    virtual void func2(float);
+    virtual void func3() const;
+    virtual long func4(int);
 
-  virtual void f();
-
+    virtual void f();
 };
 
-class Derived: public Base {
+class Derived : public Base {
 
-  virtual void func1() override;
+    virtual void func1() override;
 
-  virtual void func2(double) override;
+    virtual void func2(double) override;
 
-  virtual void func3() override;
+    virtual void func3() override;
 
-  virtual int func4(int) override;
+    virtual int func4(int) override;
 
-  void f() override;
-
+    void f() override;
 };
 
-int main(){
+int main()
+{
 
-  Base base;
-  Derived derived;
-
+    Base base;
+    Derived derived;
 };

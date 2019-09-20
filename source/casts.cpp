@@ -2,11 +2,11 @@
 
 #include <iostream>
 
-int main(){
+int main()
+{
 
-  double d = 2;
-  auto p = (long*)&d;
-  auto q = (long long*)&d;
-  std::cout << d << ' ' << *p << ' ' << *q << '\n';
-  
+    double d = 2;
+    auto p = (long*)&d;
+    auto q = (long long*)&d;
+    std::cout << d << ' ' << *p << ' ' << *q << '\n';
 }

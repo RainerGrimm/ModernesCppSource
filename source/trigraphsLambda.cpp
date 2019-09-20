@@ -1,7 +1,7 @@
 // trigraphsLambda.cpp
 
-int main(){
+int main()
+{
 
-  []{}();
-
+    [] {}();
 }

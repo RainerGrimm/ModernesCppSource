@@ -1,23 +1,26 @@
 // templateIntroduction.cpp
 
-#include <type_traits>
 #include <iostream>
+#include <type_traits>
 
-template<typename T>
-concept bool Integral(){
-  return std::is_integral<T>::value;
+template <typename T>
+concept bool Integral()
+{
+    return std::is_integral<T>::value;
 }
 
-Integral{T}
-Integral gcd(T a, T b){
-  if( b == 0 ){ return a; }
-  else{
-    return gcd(b, a % b);
-  }
+Integral { T } Integral gcd(T a, T b)
+{
+    if (b == 0) {
+        return a;
+    } else {
+        return gcd(b, a % b);
+    }
 }
 
-Integral{T} 
-class ConstrainedClass{};
+Integral { T }
+class ConstrainedClass {
+};
 
 /*
 
@@ -34,16 +37,15 @@ class ConstrainedClass{};
 
 */
 
+int main()
+{
 
-int main(){
-  
-  std::cout << std::endl;
-  
-  auto res= gcd(100, 10); 
+    std::cout << std::endl;
 
-  ConstrainedClass<int> constrainedClass;
-  ConstrainedClass<double> constrainedClass1;
-  
-  std::cout << std::endl;
+    auto res = gcd(100, 10);
 
+    ConstrainedClass<int> constrainedClass;
+    ConstrainedClass<double> constrainedClass1;
+
+    std::cout << std::endl;
 }

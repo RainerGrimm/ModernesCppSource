@@ -2,8 +2,8 @@
 
 import math1;
 
-int main(){
-   
-   add(2000, 20);
-   
+int main()
+{
+
+    add(2000, 20);
 }

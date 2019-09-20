@@ -2,47 +2,49 @@
 
 #include <iostream>
 
-class MyVector{
+class MyVector {
 public:
-    MyVector(int, int){
+    MyVector(int, int)
+    {
         std::cout << "MyVector(int, int)" << std::endl;
     }
-    MyVector(std::initializer_list<int>){
+    MyVector(std::initializer_list<int>)
+    {
         std::cout << "MyVector(std::initalizer_list<int>)" << std::endl;
     }
 };
 
-class MyVector1{
+class MyVector1 {
 public:
-    MyVector1(int, int){
+    MyVector1(int, int)
+    {
         std::cout << "MyVector1(int, int)" << std::endl;
     }
 };
 
-class MyVector2{
+class MyVector2 {
 public:
-    MyVector2(int, int){
+    MyVector2(int, int)
+    {
         std::cout << "MyVector(std::initalizer_list<int>)" << std::endl;
     }
 };
 
-int main(){
-    
+int main()
+{
+
     std::cout << std::endl;
-    
+
     MyVector(1, 2);
-    MyVector{1, 2};
-    
+    MyVector { 1, 2 };
+
     std::cout << std::endl;
-    
-    MyVector1{1, 2};
-    
+
+    MyVector1 { 1, 2 };
+
     std::cout << std::endl;
-    
+
     MyVector2(1, 2);
-    
-    
-    
+
     std::cout << std::endl;
-    
 }

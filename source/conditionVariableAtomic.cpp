@@ -8,31 +8,33 @@
 std::mutex mutex_;
 std::condition_variable condVar;
 
-std::atomic<bool> dataReady{false};
+std::atomic<bool> dataReady { false };
 
-void waitingForWork(){
+void waitingForWork()
+{
     std::cout << "Waiting " << std::endl;
     std::unique_lock<std::mutex> lck(mutex_);
-    condVar.wait(lck, []{ return dataReady.load(); });   // (1)
+    condVar.wait(lck, [] { return dataReady.load(); }); // (1)
     std::cout << "Running " << std::endl;
 }
 
-void setDataReady(){
+void setDataReady()
+{
     dataReady = true;
     std::cout << "Data prepared" << std::endl;
     condVar.notify_one();
 }
 
-int main(){
-    
-  std::cout << std::endl;
+int main()
+{
 
-  std::thread t1(waitingForWork);
-  std::thread t2(setDataReady);
+    std::cout << std::endl;
 
-  t1.join();
-  t2.join();
-  
-  std::cout << std::endl;
-  
+    std::thread t1(waitingForWork);
+    std::thread t2(setDataReady);
+
+    t1.join();
+    t2.join();
+
+    std::cout << std::endl;
 }

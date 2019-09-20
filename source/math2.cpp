@@ -2,6 +2,7 @@
 
 module math2;
 
-int add(int fir, int sec){
+int add(int fir, int sec)
+{
     return fir + sec;
 }

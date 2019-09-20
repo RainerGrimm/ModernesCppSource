@@ -4,15 +4,15 @@
 #include <string>
 #include <thread>
 
-int main(){
-    
-  std::cout << "Begin:" << std::endl;            // 2    
+int main()
+{
 
-  std::string mess{"Child thread"};
+    std::cout << "Begin:" << std::endl; // 2
 
-  std::thread t([&mess]{ std::cout << mess << std::endl;});
-  t.detach();                                    // 1
-  
-  std::cout << "End:" << std::endl;              // 3
+    std::string mess { "Child thread" };
 
+    std::thread t([&mess] { std::cout << mess << std::endl; });
+    t.detach(); // 1
+
+    std::cout << "End:" << std::endl; // 3
 }

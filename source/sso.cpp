@@ -3,14 +3,16 @@
 #include <iostream>
 #include <string>
 
-void* operator new(std::size_t count){
+void* operator new(std::size_t count)
+{
     std::cout << "   " << count << " bytes" << std::endl;
     return malloc(count);
 }
 
-void getString(const std::string& str){}
+void getString(const std::string& str) {}
 
-int main() {
+int main()
+{
 
     std::cout << std::endl;
 
@@ -26,12 +28,8 @@ int main() {
 
     getString(small);
     getString("0123456789");
-    const char message []= "0123456789";
+    const char message[] = "0123456789";
     getString(message);
 
     std::cout << std::endl;
-
 }
-  
-
-

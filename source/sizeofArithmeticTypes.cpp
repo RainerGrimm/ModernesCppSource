@@ -1,23 +1,22 @@
-struct NoDefault{
-    NoDefault = delete;
+struct NoDefault {
+    NoDefault() = delete;
 };
 
-
-
-class Bad{
+class Bad {
     const int constInt;
     int& refToInt;
     NoDefault noDefault;
+
 public:
-    Bad(int i_, int& intRef){
+    Bad(int i_, int& intRef)
+    {
         constInt = i_;
         retToInt = intRef;
     }
 };
 
+int main()
+{
 
-int main(){
-  
     Bad bad;
-  
 }

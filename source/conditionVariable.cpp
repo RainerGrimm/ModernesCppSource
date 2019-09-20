@@ -1,18 +1,20 @@
 // conditionVariable.cpp
 
-#include <iostream>
 #include <condition_variable>
+#include <iostream>
 #include <mutex>
 #include <thread>
 
 std::mutex mutex_;
 std::condition_variable condVar;
 
-void doTheWork(){
-  std::cout << "Processing shared data." << std::endl;
+void doTheWork()
+{
+    std::cout << "Processing shared data." << std::endl;
 }
 
-void waitingForWork(){
+void waitingForWork()
+{
     std::cout << "Worker: Waiting for work." << std::endl;
 
     std::unique_lock<std::mutex> lck(mutex_);
@@ -21,21 +23,22 @@ void waitingForWork(){
     std::cout << "Work done." << std::endl;
 }
 
-void setDataReady(){
-    std::cout << "Sender: Data is ready."  << std::endl;
+void setDataReady()
+{
+    std::cout << "Sender: Data is ready." << std::endl;
     condVar.notify_one();
 }
 
-int main(){
+int main()
+{
 
-  std::cout << std::endl;
+    std::cout << std::endl;
 
-  std::thread t1(waitingForWork);
-  std::thread t2(setDataReady);
+    std::thread t1(waitingForWork);
+    std::thread t2(setDataReady);
 
-  t1.join();
-  t2.join();
+    t1.join();
+    t2.join();
 
-  std::cout << std::endl;
-  
+    std::cout << std::endl;
 }

@@ -8,19 +8,23 @@
 std::string work;
 std::atomic<bool> ready(false);
 
-void consumer(){
-  while(!ready.load()){}
-  std::cout<< work << std::endl;    
+void consumer()
+{
+    while (!ready.load()) {
+    }
+    std::cout << work << std::endl;
 }
 
-void producer(){
-  work= "done";
-  ready=true; 
+void producer()
+{
+    work = "done";
+    ready = true;
 }
 
-int main(){
-  std::thread prod(producer);
-  std::thread con(consumer);
-  prod.join(); 
-  con.join();
+int main()
+{
+    std::thread prod(producer);
+    std::thread con(consumer);
+    prod.join();
+    con.join();
 }

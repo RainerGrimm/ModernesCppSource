@@ -7,16 +7,18 @@
 std::mutex mutex_;
 std::condition_variable condVar;
 
-bool dataReady{false};
+bool dataReady { false };
 
-void waitingForWork(){
+void waitingForWork()
+{
     std::cout << "Waiting " << std::endl;
     std::unique_lock<std::mutex> lck(mutex_);
-    condVar.wait(lck, []{ return dataReady; });
+    condVar.wait(lck, [] { return dataReady; });
     std::cout << "Running " << std::endl;
 }
 
-void setDataReady(){
+void setDataReady()
+{
     {
         std::lock_guard<std::mutex> lck(mutex_);
         dataReady = true;
@@ -25,16 +27,16 @@ void setDataReady(){
     condVar.notify_one();
 }
 
-int main(){
-    
-  std::cout << std::endl;
+int main()
+{
 
-  std::thread t1(waitingForWork);
-  std::thread t2(setDataReady);
+    std::cout << std::endl;
 
-  t1.join();
-  t2.join();
-  
-  std::cout << std::endl;
-  
+    std::thread t1(waitingForWork);
+    std::thread t2(setDataReady);
+
+    t1.join();
+    t2.join();
+
+    std::cout << std::endl;
 }

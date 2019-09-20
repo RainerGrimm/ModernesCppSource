@@ -6,16 +6,18 @@
 
 #include <string_view>
 
-void* operator new(std::size_t count){
+void* operator new(std::size_t count)
+{
     std::cout << "   " << count << " bytes" << std::endl;
     return malloc(count);
 }
 
-void getString(const std::string& str){}
+void getString(const std::string& str) {}
 
-void getStringView(std::string_view strView){}
+void getStringView(std::string_view strView) {}
 
-int main() {
+int main()
+{
 
     std::cout << std::endl;
 
@@ -28,7 +30,7 @@ int main() {
 
     std::cout << "std::string_view" << std::endl;
 
-    std::string_view largeStringView{large.c_str(), large.size()};
+    std::string_view largeStringView { large.c_str(), large.size() };
     largeStringView.remove_prefix(10);
 
     assert(substr == largeStringView);
@@ -39,7 +41,7 @@ int main() {
 
     getString(large);
     getString("0123456789-123456789-123456789-123456789");
-    const char message []= "0123456789-123456789-123456789-123456789";
+    const char message[] = "0123456789-123456789-123456789-123456789";
     getString(message);
 
     std::cout << std::endl;
@@ -51,8 +53,4 @@ int main() {
     getStringView(message);
 
     std::cout << std::endl;
-
 }
-  
-
-

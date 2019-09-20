@@ -2,17 +2,17 @@
 
 #include <iostream>
 
-void override(){ std::cout << "override" << std::endl; }
+void override() { std::cout << "override" << std::endl; }
 
-int main(){
+int main()
+{
 
-  std::cout << std::endl;
+    std::cout << std::endl;
 
-  override();
-  
-  auto final(2011);
-  std::cout << "final: " << final << std::endl;
+    override();
 
-  std::cout << std::endl;
+    auto final(2011);
+    std::cout << "final: " << final << std::endl;
 
+    std::cout << std::endl;
 }

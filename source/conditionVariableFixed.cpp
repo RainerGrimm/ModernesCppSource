@@ -1,7 +1,7 @@
 // conditionVariableFixed.cpp
 
-#include <iostream>
 #include <condition_variable>
+#include <iostream>
 #include <mutex>
 #include <thread>
 
@@ -10,36 +10,39 @@ std::condition_variable condVar;
 
 bool dataReady;
 
-void doTheWork(){
-  std::cout << "Processing shared data." << std::endl;
+void doTheWork()
+{
+    std::cout << "Processing shared data." << std::endl;
 }
 
-void waitingForWork(){
+void waitingForWork()
+{
     std::cout << "Worker: Waiting for work." << std::endl;
 
     std::unique_lock<std::mutex> lck(mutex_);
-    condVar.wait(lck,[]{return dataReady;});
+    condVar.wait(lck, [] { return dataReady; });
     doTheWork();
     std::cout << "Work done." << std::endl;
 }
 
-void setDataReady(){
+void setDataReady()
+{
     std::lock_guard<std::mutex> lck(mutex_);
-    dataReady=true;
-    std::cout << "Sender: Data is ready."  << std::endl;
+    dataReady = true;
+    std::cout << "Sender: Data is ready." << std::endl;
     condVar.notify_one();
 }
 
-int main(){
+int main()
+{
 
-  std::cout << std::endl;
+    std::cout << std::endl;
 
-  std::thread t1(waitingForWork);
-  std::thread t2(setDataReady);
+    std::thread t1(waitingForWork);
+    std::thread t2(setDataReady);
 
-  t1.join();
-  t2.join();
+    t1.join();
+    t2.join();
 
-  std::cout << std::endl;
-  
+    std::cout << std::endl;
 }

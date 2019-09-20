@@ -2,24 +2,25 @@
 
 #include <iostream>
 
-template <typename T,typename Arg>
-T create(Arg&& a){
-  return T(std::forward<Arg>(a));
+template <typename T, typename Arg>
+T create(Arg&& a)
+{
+    return T(std::forward<Arg>(a));
 }
 
-int main(){
-    
-  std::cout << std::endl;
+int main()
+{
 
-  // Lvalues
-  int five=5;
-  int myFive= create<int>(five);
-  std::cout << "myFive: "  << myFive << std::endl;
+    std::cout << std::endl;
 
-  // Rvalues
-  int myFive2= create<int>(5);
-  std::cout << "myFive2: " << myFive2 << std::endl;
+    // Lvalues
+    int five = 5;
+    int myFive = create<int>(five);
+    std::cout << "myFive: " << myFive << std::endl;
 
-  std::cout << std::endl;
+    // Rvalues
+    int myFive2 = create<int>(5);
+    std::cout << "myFive2: " << myFive2 << std::endl;
 
+    std::cout << std::endl;
 }

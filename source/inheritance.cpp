@@ -2,27 +2,29 @@
 
 #include <iostream>
 
-class Base{
+class Base {
 public:
-    void func(){                    // (1)
+    void func()
+    { // (1)
         std::cout << "func" << std::endl;
     }
 };
 
-class Derived: public Base{
+class Derived : public Base {
 public:
-    void callBase(){
-        func();                      // (2)
+    void callBase()
+    {
+        func(); // (2)
     }
 };
 
-int main(){
+int main()
+{
 
     std::cout << std::endl;
 
     Derived derived;
-    derived.callBase();              
+    derived.callBase();
 
     std::cout << std::endl;
-
 }

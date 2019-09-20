@@ -3,18 +3,18 @@
 #include <chrono>
 #include <iostream>
 
-static const long long numInt= 100000000;
+static const long long numInt = 100000000;
 
-int main(){
+int main()
+{
 
-  auto start = std::chrono::system_clock::now();
+    auto start = std::chrono::system_clock::now();
 
-  for ( long long i=0 ; i < numInt; ++i){
-    int* tmp(new int(i));
-    delete tmp;
-  }
+    for (long long i = 0; i < numInt; ++i) {
+        int* tmp(new int(i));
+        delete tmp;
+    }
 
-  std::chrono::duration<double> dur= std::chrono::system_clock::now() - start;
-  std::cout << "time native: " << dur.count() << " seconds" << std::endl;
-
+    std::chrono::duration<double> dur = std::chrono::system_clock::now() - start;
+    std::cout << "time native: " << dur.count() << " seconds" << std::endl;
 }
