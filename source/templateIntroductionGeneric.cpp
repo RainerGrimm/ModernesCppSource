@@ -5,13 +5,16 @@
 #include <typeinfo>
 #include <utility>
 
+struct NoDefaultConstructor{               // (5)
+    NoDefaultConstructor() = delete;
+};
 
-template<typename T>
+template<typename T>                       // (1)
 concept bool Generic(){
   return true;
 }
 
-Generic{T}
+Generic{T}                                 // (2)
 Generic gcd(T a, T b){
   if( b == 0 ){ return a; }
   else{
@@ -19,11 +22,12 @@ Generic gcd(T a, T b){
   }
 }
 
-Generic{T} 
+Generic{T}                                 // (3)
 class ConstrainedClass{
 public:
   ConstrainedClass(){
-    std::cout << typeid(decltype(std::declval<T>())).name() << std::endl;
+    std::cout << typeid(decltype(std::declval<T>())).name()   // (4)
+              << std::endl;
   }
 };
 
@@ -39,6 +43,7 @@ int main(){
   ConstrainedClass<int> genericClassInt;
   ConstrainedClass<std::string> genericClassString;
   ConstrainedClass<double> genericClassDouble;
+  ConstrainedClass<NoDefaultConstructor> genericNoDefaultConstructor;
   
   std::cout << std::endl;
 

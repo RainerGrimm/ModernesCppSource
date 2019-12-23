@@ -8,7 +8,7 @@ concept bool Integral(){
   return std::is_integral<T>::value;
 }
 
-Integral{T}
+Integral{T}                            // (1)
 Integral gcd(T a, T b){
   if( b == 0 ){ return a; }
   else{
@@ -16,20 +16,20 @@ Integral gcd(T a, T b){
   }
 }
 
-Integral{T} 
+Integral{T}                            // (2)
 class ConstrainedClass{};
 
 /*
 
-auto{T}
-T gcd(T a, T b){
+auto{T}                                // (3)
+auto gcd(T a, T b){
   if( b == 0 ){ return a; }
   else{
     return gcd(b, a % b);
   }
 }
 
-auto{T} 
+auto{T}                                // (4)
 class ConstrainedClass{};
 
 */
