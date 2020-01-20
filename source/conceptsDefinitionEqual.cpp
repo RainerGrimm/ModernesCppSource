@@ -3,14 +3,14 @@
 #include <iostream>
 
 template<typename T>
-concept bool Equal(){
-  return requires(T a, T b) {
-    { a == b } -> bool;
-    { a != b } -> bool;
-  };
-}
+concept Equal =
+    requires(T a, T b) {
+        { a == b } -> bool;
+        { a != b } -> bool;
+};
 
-bool areEqual(Equal a, Equal b){
+
+bool areEqual(Equal auto a, Equal auto b){
   return a == b;
 }
 
@@ -26,7 +26,7 @@ struct WithoutUnequal{
 
 */
 
-int main(){
+int main() {
   
   std::cout << std::boolalpha << std::endl;
   
