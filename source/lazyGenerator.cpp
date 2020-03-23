@@ -3,26 +3,26 @@
 #include <iostream>
 #include <vector>
 
-generator<int> generatorForNumbers(int begin, int inc= 1){
+generator<int> generatorForNumbers(int begin, int inc = 1) {
   
-  for (int i= begin;; i += inc){
+  for (int i = begin;; i += inc) {
     co_yield i;
   }
   
 }
 
-int main(){
+int main() {
 
-  std::cout << std::endl;
+    std::cout << std::endl;
 
-  auto numbers= generatorForNumbers(-10);
+    const auto numbers= generatorForNumbers(-10);
   
-  for ( int i= 1; i <= 20; ++i) std::cout << numbers << " ";
+    for (int i= 1; i <= 20; ++i) std::cout << numbers << " ";
   
-  std::cout << "\n\n";
+    std::cout << "\n\n";
 
-  for (auto n: getForNumbers(0, 5)) std::cout << n << " ";
+    for (auto n: generatorForNumbers(0, 5)) std::cout << n << " ";
 
-  std::cout << "\n\n";
+    std::cout << "\n\n";
 
 }
