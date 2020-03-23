@@ -13,7 +13,7 @@ double func2(double arg) {
 }
 
 template <typename T>
-int func3(T arg) {
+T func3(T arg) {
     return arg;
 }
 
