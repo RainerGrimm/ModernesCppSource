@@ -12,22 +12,21 @@ struct Generator {
     
     Generator(handle_type h): coro(h) {}                         // (3)
     handle_type coro;
-    std::shared_ptr<T> value;
     
     ~Generator() {
         if ( coro ) coro.destroy();
     }
     Generator(const Generator&) = delete;
     Generator& operator = (const Generator&) = delete;
-    Generator(Generator&& oth): coro(oth.coro) {
+    Generator(Generator&& oth) noexcept : coro(oth.coro) {
         oth.coro = nullptr;
     }
-    Generator& operator = (Generator&& oth) {
+    Generator& operator = (Generator&& oth) noexcept {
         coro = oth.coro;
         oth.coro = nullptr;
         return *this;
     }
-    int getValue() {
+    T getValue() {
         return coro.promise().current_value;
     }
     bool next() {                                                // (5)
@@ -52,7 +51,7 @@ struct Generator {
             return std::suspend_never{};
         }
       
-        auto yield_value(int value) {                            // (6) 
+        auto yield_value(const T value) {                        // (6) 
             current_value = value;
             return std::suspend_always{};
         }
@@ -94,4 +93,4 @@ int main() {
     
     std::cout << std::endl;
     
-} 
+}
