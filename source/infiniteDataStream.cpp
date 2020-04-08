@@ -63,7 +63,7 @@ struct Generator {
 
 };
 
-Generator<int> getNext(int start = 0, int step = 1){
+Generator<int> getNext(int start = 0, int step = 1) {
     auto value = start;
     for (int i = 0;; ++i){
         co_yield value;
