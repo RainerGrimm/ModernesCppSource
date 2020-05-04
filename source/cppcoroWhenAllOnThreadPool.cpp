@@ -1,4 +1,4 @@
-// cppcoroWhenAll.cppcoroWhenAll
+// cppcoroWhenAllOnThreadPool.cpp
 
 #include <chrono>
 #include <iostream>

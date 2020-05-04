@@ -25,7 +25,7 @@ int main() {
     auto cancelReceiver = std::async([&canToken] { 
         while(true) {
             std::cout << "Wait for cancellation request" << std::endl;
-             std::this_thread::sleep_for(200ms);
+            std::this_thread::sleep_for(200ms);
             if (canToken.is_cancellation_requested()) return;
         }
     });

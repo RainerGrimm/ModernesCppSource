@@ -39,9 +39,9 @@ int main() {
     std::cout << std::endl;
     
     auto con = std::async([]{ cppcoro::sync_wait(consumer()); });
-    auto res = std::async(producer);
+    auto prod = std::async(producer);
     
-    con.get(), res.get();
+    con.get(), prod.get();
     
     std::cout << std::endl;
     

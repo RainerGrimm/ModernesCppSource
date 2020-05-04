@@ -1,4 +1,4 @@
-// cppcoroWhenAll.cppcoroWhenAll
+// cppcoroWhenAll.cpp
 
 #include <chrono>
 #include <iostream>
@@ -7,25 +7,6 @@
 #include <cppcoro/sync_wait.hpp>
 #include <cppcoro/task.hpp>
 #include <cppcoro/when_all.hpp>
-
-/*
- * 
- * 
- task<void> foo(static_thread_pool& tp)
-{
-  co_await when_all(
-    [&]() -> task<void>
-    {
-      co_await tp.schedule();
-      body1();
-    }(),
-    [&]() -> task<void>
-    {
-      co_await tp.schedule();
-      body2();
-    }());
-}
- */
 
 using namespace std::chrono_literals;
 
