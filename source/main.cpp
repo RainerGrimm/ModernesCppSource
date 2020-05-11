@@ -1,9 +1,6 @@
 // main.cpp
 
-import math;
+#include "header.h"
+#include "header2.h"
 
-int main(){
-   
-   add(2000, 20);
-   
-}
+int main() {}
