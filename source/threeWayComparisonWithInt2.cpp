@@ -5,19 +5,18 @@
 
 class MyInt {
  public:
-    constexpr explicit MyInt(int val): value{val} { }
-    auto operator<=>(const MyInt& rhs) const = default;  
-    constexpr auto operator<=>(const int& rhs) const {
+    constexpr explicit MyInt(int val): value{val} { }    // (1)
+    
+    auto operator<=>(const MyInt& rhs) const = default;  // (2)
+    
+    constexpr auto operator<=>(const int& rhs) const {   // (3)
         return value <=> rhs;
     }
+    
  private: 
     int value;
 };
 
-template <typename T, typename T2>
-constexpr bool isLessThan(const T& lhs, const T2& rhs) {
-    return lhs < rhs;
-}
 
 int main() {
     
@@ -26,19 +25,13 @@ int main() {
     constexpr MyInt myInt2011(2011);
     constexpr MyInt myInt2014(2014);
     
-    constexpr int int2011(2011);
-    constexpr int int2014(2014);
+    std::cout << "myInt2011 < myInt2014: " << (myInt2011 < myInt2014) << std::endl; // (2)
+
+    std::cout << "myInt2011 < 2014: " << (myInt2011 < 2014) << std::endl;           // (3)
     
-    std::cout << "isLessThan(myInt2011, myInt2014): "
-              << isLessThan(myInt2011, myInt2014) << std::endl;
-              
-    std::cout << "isLessThan(int2011, myInt2014): "
-              << isLessThan(int2011, myInt2014) << std::endl;
-            
-    std::cout << "isLessThan(myInt2011, int2014): "
-              << isLessThan(myInt2011, int2014) << std::endl;
-              
-    constexpr auto res = isLessThan(myInt2011, int2014);
+    std::cout << "myInt2011 < 2014.5: " << (myInt2011 < 2014.5) << std::endl;       // (3)
+    
+    std::cout << "myInt2011 < true: " << (myInt2011 < true) << std::endl;           // (3)
               
     std::cout << std::endl;
               

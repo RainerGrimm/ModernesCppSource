@@ -13,7 +13,7 @@ bool isPrime(int i) {
 
 int main() {
     
-    std::cout << "Numbers from 1000000 to 1001000 (dispayed each 100th): " << std::endl;
+    std::cout << "Numbers from 1000000 to 1001000 (displayed each 100th): " << std::endl;
     for (int i: ranges::views::iota(1000000, 1001000)) {
         if (i % 100 == 0) std::cout << i << " ";  
     }
