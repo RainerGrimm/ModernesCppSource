@@ -1,5 +1,7 @@
 # ModernesCppSource
-Source code for http://www.grimm-jaud.de and http://ModernesCpp.com. 
-In case you read the article. In the head of the examples you see the name of the files.
+
+This repository include the source code to all examples of my German blog (http://www.grimm-jaud.de) and English blog (http://ModernesCpp.com). 
+You can find the name of the file in the header of each source file.
+
 
 
