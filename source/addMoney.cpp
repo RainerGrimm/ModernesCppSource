@@ -6,29 +6,29 @@
 #include <vector>
 
 struct Account{
-  int balance{100};                              // 1
+  int balance{100};                             
 };
 
 void addMoney(Account& to, int amount){
-  to.balance += amount;                          // 2
+  to.balance += amount;                         
 }
 
 int main(){
   
-  std::cout << std::endl;
+  std::cout << '\n';
 
   Account account;
   
   std::vector<std::thread> vecThreads(100);
   
-                                                 // 3
-  for (auto& thr: vecThreads) thr = std::thread( addMoney, std::ref(account), 50);
+                                                 
+  for (auto& thr: vecThreads) thr = std::thread(addMoney, std::ref(account), 50);
   
   for (auto& thr: vecThreads) thr.join();
   
-                                                 // 4
-  std::cout << "account.balance: " << account.balance << std::endl;
+                                                 
+  std::cout << "account.balance: " << account.balance << '\n';
   
-  std::cout << std::endl;
+  std::cout << '\n';
 
 }
