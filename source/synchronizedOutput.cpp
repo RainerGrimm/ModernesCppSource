@@ -1,19 +1,21 @@
-// coutUnsynchronized.cpp
+// synchronizedOutput.cpp
 
 #include <chrono>
 #include <iostream>
+#include <syncstream>
 #include <thread>
 
 class Worker{
 public:
-  Worker(std::string n):name(n) {};
+  Worker(std::string n): name(n) {};
     void operator() (){
       for (int i = 1; i <= 3; ++i) {
         // begin work
         std::this_thread::sleep_for(std::chrono::milliseconds(200));
         // end work
-        std::cout << name << ": " << "Work " << i << " done !!!" << '\n';
-      }
+        std::osyncstream syncStream(std::cout);
+        syncStream << name << ": " << "Work " << i << " done !!!" << '\n';
+      }   
     }
 private:
   std::string name;

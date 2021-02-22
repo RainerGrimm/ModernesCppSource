@@ -9,16 +9,15 @@ std::mutex coutMutex;
 
 class Worker{
 public:
-  Worker(std::string n):name(n){};
+  Worker(std::string n):name(n) {};
  
     void operator() (){
-      for (int i= 1; i <= 3; ++i){
-	// begin work
-	std::this_thread::sleep_for(std::chrono::milliseconds(200));
-	// end work
-	coutMutex.lock();
-	std::cout << name << ": " << "Work " << i << " done !!!" << std::endl;
-	coutMutex.unlock();
+      for (int i = 1; i <= 3; ++i) { 
+        // begin work
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        // end work
+        std::lock_guard<std::mutex> coutLock(coutMutex);
+        std::cout << name << ": " << "Work " << i << " done !!!" << '\n';
       }
     }
 private:
@@ -26,9 +25,9 @@ private:
 };
 
 
-int main(){
+int main() {
 
-  std::cout << std::endl;
+  std::cout << '\n';
   
   std::cout << "Boss: Let's start working." << "\n\n";
  
@@ -36,16 +35,18 @@ int main(){
   std::thread andrei= std::thread(Worker("  Andrei"));
   std::thread scott= std::thread(Worker("    Scott"));
   std::thread bjarne= std::thread(Worker("      Bjarne"));
-  std::thread andrew= std::thread(Worker("        Andrew"));
-  std::thread david= std::thread(Worker("          David"));
+  std::thread bart= std::thread(Worker("        Bart"));
+  std::thread jenne= std::thread(Worker("          Jenne"));
   
   herb.join();
   andrei.join();
   scott.join();
   bjarne.join();
-  andrew.join();
-  david.join();
+  bart.join();
+  jenne.join();
   
-  std::cout << "\n" << "Boss: Let's go home." << std::endl;
+  std::cout << "\n" << "Boss: Let's go home." << '\n';
   
-  std::cout << std::endl;
+  std::cout << '\n';
+
+}
