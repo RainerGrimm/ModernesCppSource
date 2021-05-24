@@ -13,14 +13,14 @@ class Array{
     template <typename T2>
     Array<T, N>& operator = (const Array<T2, N>& arr) requires std::convertible_to<T2, T>;
     template<typename, std::size_t> friend class Array;
-    int getSize() const;
+    std::size_t getSize() const;
  private:
     T elem[N];
     
 };
 
 template <typename T, std::size_t N> 
-int Array<T, N>::getSize() const { return N; }
+std::size_t Array<T, N>::getSize() const { return N; }
 
 template<typename T, std::size_t N>
 template<typename T2>

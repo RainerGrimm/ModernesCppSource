@@ -8,7 +8,7 @@ template <typename T, std::size_t N>
 class Array{
 
  public:
-    int getSize() const {
+    std::size_t getSize() const {
         return N;
     }
 
