@@ -5,3 +5,7 @@ You can find the name of the source file in the used example in my blogs.
 
 ![cppdepend](https://user-images.githubusercontent.com/18601589/124365945-f40bbd00-dc4b-11eb-822a-ff8695eb8013.png)
 
+[<img src="http://www.google.com.au/images/nav_logo7.png">](http://google.com.au/)
+
+[![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)
+
