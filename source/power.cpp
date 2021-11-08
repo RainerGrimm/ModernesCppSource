@@ -2,28 +2,28 @@
 
 #include <iostream>
 
-int power(int m, int n){                                // (1)
+int power(int m, int n) {                               
     int r = 1;
-    for(int k=1; k<=n; ++k) r*= m;
-    return r;                                           // (3)
+    for(int k = 1; k <= n; ++k) r *= m;
+    return r;                                        
 }
 
-template<int m, int n>                                  // (2)
-struct Power{
-    static int const value = m * Power<m, n-1>::value;  // (3)
+template<int m, int n>                              
+struct Power {
+    static int const value = m * Power<m, n-1>::value;
 };
                           
-template<int m>                                         // (2) 
-struct Power<m, 0>{                                     // (2)  
-    static int const value = 1;                         // (3)
+template<int m>                                     
+struct Power<m, 0> {                                   
+    static int const value = 1;                       
 };
 
-int main(){
+int main() {
 	
-    std::cout << std::endl;	
+    std::cout << '\n';	
 	
-    std::cout << "power(2, 10)= " << power(2, 10) << std::endl;              // (A)
-	std::cout << "Power<2,10>::value= " << Power<2, 10>::value << std::endl; // (B)
+    std::cout << "power(2, 10)= " << power(2, 10) << '\n';
+    std::cout << "Power<2,10>::value= " << Power<2, 10>::value << '\n';
 	
-	std::cout << std::endl;
+    std::cout << '\n';
 }

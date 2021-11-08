@@ -2,36 +2,29 @@
 
 #include <iostream>
 
-template<int n>
-int power(int m){
-    return m * power<n-1>(m);
+int power(int m, int n) {                               
+    int r = 1;
+    for(int k = 1; k <= n; ++k) r *= m;
+    return r;                                        
 }
 
-template<>
-int power<1>(int m){
-    return m;
-}
+template<int m, int n>                              
+struct Power {
+    static int const value = m * Power<m, n-1>::value;
+};
+                          
+template<int m>                                     
+struct Power<m, 0> {                                   
+    static int const value = 1;                       
+};
 
-template<>
-int power<0>(int m){
-    return 1;
-}
+int main() {
+	
+    std::cout << '\n';	
+	
+    std::cout << "power(2, 10)= " << power(2, 10) << '\n';
+    std::cout << "Power<2,10>::value= " << Power<2, 10>::value << '\n';
+	
+    std::cout << '\n';
 
-int main(){
-    
-    std::cout << std::endl;
-    
-    std::cout << "power<10>(2): " << power<10>(2) << std::endl;     // (1)
-    
-    std::cout << std::endl;
-    
-    auto power2 = power<2>;                                         // (2)
-    
-    for (int i = 0; i <= 10; ++i){
-        std::cout << "power2(" << i << ")= " 
-                  << power2(i) << std::endl;                        // (3)
-    }
-    
-    std::cout << std::endl;
-    
 }
