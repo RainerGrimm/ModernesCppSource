@@ -1,4 +1,4 @@
-// powerHybrid.cpp
+// powerHybridRuntime.cpp
 
 #include <iostream>
 
@@ -16,10 +16,12 @@ int main() {
     
     std::cout << '\n';
 
-    std::cout << "Power<0>(10): " << Power<0>(20) << '\n';
-    std::cout << "Power<1>(10): " << Power<1>(10) << '\n';
-    std::cout << "Power<2>(10): " << Power<2>(10) << '\n';
-    
+    auto Power2of = Power<2>;
+
+    for (int i = 0; i <= 20; ++i) {
+        std::cout << "Power2of(" << i << ")= "
+                  << Power2of(i)  << '\n';
+     }
 
     std::cout << '\n';
 
