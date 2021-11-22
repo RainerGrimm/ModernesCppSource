@@ -63,30 +63,30 @@ namespace rgr{
 
 int main(){
   
-  std::cout << std::boolalpha << std::endl;
+  std::cout << std::boolalpha << '\n';
   
-  std::cout << "std::is_integral<int>::value: " << std::is_integral<int>::value << std::endl;
-  std::cout << "rgr::is_integral<int>::value: " << rgr::is_integral<int>::value << std::endl;
+  std::cout << "std::is_integral<int>::value: " << std::is_integral<int>::value << '\n';
+  std::cout << "rgr::is_integral<int>::value: " << rgr::is_integral<int>::value << '\n';
   
-  std::cout << "std::is_integral<double>::value: " << std::is_integral<double>::value << std::endl;
-  std::cout << "rgr::is_integral<double>::value: " << rgr::is_integral<double>::value << std::endl;
+  std::cout << "std::is_integral<double>::value: " << std::is_integral<double>::value << '\n';
+  std::cout << "rgr::is_integral<double>::value: " << rgr::is_integral<double>::value << '\n';
   
-  std::cout << std::endl;
+  std::cout << '\n';
   
-  std::cout << "std::true_type::value: " << std::true_type::value << std::endl;
-  std::cout << "rgr::true_type::value: " << rgr::true_type::value << std::endl;
+  std::cout << "std::true_type::value: " << std::true_type::value << '\n';
+  std::cout << "rgr::true_type::value: " << rgr::true_type::value << '\n';
   
-  std::cout << "std::false_type::value: " << std::false_type::value << std::endl;
-  std::cout << "rgr::false_type::value: " << rgr::false_type::value << std::endl;
+  std::cout << "std::false_type::value: " << std::false_type::value << '\n';
+  std::cout << "rgr::false_type::value: " << rgr::false_type::value << '\n';
   
-  std::cout << std::endl;
+  std::cout << '\n';
   
-  std::cout << "std::integral_constant<bool, true>::value: " << std::integral_constant<bool, true>::value << std::endl;
-  std::cout << "rgr::integral_constant<bool, true>::value: " << rgr::integral_constant<bool, true>::value << std::endl;
+  std::cout << "std::integral_constant<bool, true>::value: " << std::integral_constant<bool, true>::value << '\n';
+  std::cout << "rgr::integral_constant<bool, true>::value: " << rgr::integral_constant<bool, true>::value << '\n';
   
-  std::cout << "std::integral_constant<bool, false>::value: " << std::integral_constant<bool, false>::value << std::endl;
-  std::cout << "rgr::integral_constant<bool, false>::value: " << rgr::integral_constant<bool, false>::value << std::endl;  
+  std::cout << "std::integral_constant<bool, false>::value: " << std::integral_constant<bool, false>::value << '\n';
+  std::cout << "rgr::integral_constant<bool, false>::value: " << rgr::integral_constant<bool, false>::value << '\n';  
   
-  std::cout << std::endl;
+  std::cout << '\n';
   
 }

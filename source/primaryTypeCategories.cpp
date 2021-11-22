@@ -1,42 +1,39 @@
-//  primaryTypeCategories.cpp
-
 #include <iostream>
 #include <type_traits>
 
-struct A{
+struct A {
   int a;
-  int f(int){return 2011;}
+  int f(int) { return 2011; }
 };
 
-enum E{
+enum E {
   e= 1,
 };
 
-union U{
+union U {
   int u;
 };
 
 
-int main(){
-  
-  std::cout <<  std::boolalpha <<  std::endl;
+int main() {
 
-  std::cout << std::is_void<void>::value << std::endl;
-  std::cout << std::is_integral<short>::value << std::endl;
-  std::cout << std::is_floating_point<double>::value << std::endl;
-  std::cout << std::is_array<int [] >::value << std::endl;
-  std::cout << std::is_pointer<int*>::value << std::endl;
-  std::cout << std::is_reference<int&>::value << std::endl;
-  std::cout << std::is_member_object_pointer<int A::*>::value <<  std::endl;
-  std::cout << std::is_member_function_pointer<int (A::*)(int)>::value << std::endl;
-  std::cout << std::is_enum<E>::value << std::endl;
-  std::cout << std::is_union<U>::value << std::endl;
-  std::cout << std::is_class<std::string>::value << std::endl;
-  std::cout << std::is_function<int * (double)>::value << std::endl;	
-  std::cout << std::is_lvalue_reference<int&>::value << std::endl;
-  std::cout << std::is_rvalue_reference<int&&>::value << std::endl;
+  using namespace std;
   
-  std::cout <<  std::endl;
+  cout <<  boolalpha <<  '\n';
 
+  cout << is_void<void>::value << '\n';                               // true                           
+  cout << is_integral<short>::value << '\n';                          // true
+  cout << is_floating_point<double>::value << '\n';                   // true
+  cout << is_array<int []>::value << '\n';                            // true
+  cout << is_pointer<int*>::value << '\n';                            // true
+  cout << is_null_pointer<nullptr_t>::value << '\n';                  // true
+  cout << is_member_object_pointer<int A::*>::value <<  '\n';         // true
+  cout << is_member_function_pointer<int (A::*)(int)>::value << '\n'; // true
+  cout << is_enum<E>::value << '\n';                                  // true
+  cout << is_union<U>::value << '\n';                                 // true 
+  cout << is_class<string>::value << '\n';                            // true
+  cout << is_function<int * (double)>::value << '\n';                 // true	
+  cout << is_lvalue_reference<int&>::value << '\n';                   // true
+  cout << is_rvalue_reference<int&&>::value << '\n';                  // true
+  
 }
-		
