@@ -16,15 +16,9 @@ namespace rgr {
 
   typedef integral_constant<bool, true> true_type;                       
   typedef integral_constant<bool, false> false_type;
-
-  template<class T, class U>
-  struct is_same : false_type {};
- 
-  template<class T>
-  struct is_same<T, T> : true_type {};
   
   template<typename T, typename U>
-  struct isSameIgnoringConstVolatile: rgr::integral_constant<
+  struct isSameIgnoringConstVolatile: std::integral_constant<
          bool,
          rgr::is_same<typename std::remove_cv<T>::type, 
                       typename std::remove_cv<U>::type>::value  
