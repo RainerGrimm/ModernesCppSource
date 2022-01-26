@@ -21,7 +21,7 @@ void phil(int ph, std::mutex& ma, std::mutex& mb) {
     std::this_thread::sleep_for(std::chrono::milliseconds(duration));
 
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    std::scoped_lock(ma, mb);
+    std::scoped_lock scop(ma, mb);
 
     {
       std::lock_guard<std::mutex> g(mo);
