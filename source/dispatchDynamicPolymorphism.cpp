@@ -12,21 +12,21 @@ void writeElapsedTime(){
     std::cerr << diff.count() << " sec. elapsed: ";
 }
 
-struct MessageSeverity{                         // (1)
-	virtual void writeMessage() const {         // (5)
-		std::cerr << "unexpected" << std::endl;
+struct MessageSeverity{                         
+	virtual void writeMessage() const {         
+		std::cerr << "unexpected" << '\n';
 	}
 };
 
-struct MessageInformation: MessageSeverity{     // (2)
-	void writeMessage() const override {        // (6)
-		std::cerr << "information" << std::endl;
+struct MessageInformation: MessageSeverity{     
+	void writeMessage() const override {        
+		std::cerr << "information" << '\n';
 	}
 };
 
-struct MessageWarning: MessageSeverity{         // (3)
-	void writeMessage() const override {        // (7)
-		std::cerr << "warning" << std::endl;
+struct MessageWarning: MessageSeverity{         
+	void writeMessage() const override {        
+		std::cerr << "warning" << '\n';
 	}
 };
 
@@ -48,30 +48,30 @@ void writeMessagePointer(const MessageSeverity* messServer){
 
 int main(){
 
-    std::cout << std::endl;
+    std::cout << '\n';
   
     MessageInformation messInfo;
     MessageWarning messWarn;
     MessageFatal messFatal;
   
-    MessageSeverity& messRef1 = messInfo;         // (4)   
+    MessageSeverity& messRef1 = messInfo;            
     MessageSeverity& messRef2 = messWarn;
     MessageSeverity& messRef3 = messFatal;
   
-    writeMessageReference(messRef1);              // (8)
+    writeMessageReference(messRef1);              
     writeMessageReference(messRef2);
     writeMessageReference(messRef3);
   
-    std::cerr << std::endl;
+    std::cerr << '\n';
   
     MessageSeverity* messPoin1 = new MessageInformation;
     MessageSeverity* messPoin2 = new MessageWarning;
     MessageSeverity* messPoin3 = new MessageFatal;
   
-    writeMessagePointer(messPoin1);               // (9)
+    writeMessagePointer(messPoin1);               
     writeMessagePointer(messPoin2);
     writeMessagePointer(messPoin3);
   
-    std::cout << std::endl;
+    std::cout << '\n';
 
 }
