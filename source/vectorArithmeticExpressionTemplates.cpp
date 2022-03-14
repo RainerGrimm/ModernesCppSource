@@ -103,11 +103,11 @@ operator* (const MyVector<T, R1>& a, const MyVector<T, R2>& b){
 // function template for < operator
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const MyVector<T>& cont){  
-  std::cout << std::endl;
-  for (int i=0; i<cont.size(); ++i) {
+  std::cout << '\n';
+  for (int i = 0; i < cont.size(); ++i) {
     os << cont[i] << ' ';
   }
-  os << std::endl;
+  os << '\n';
   return os;
 } 
 
@@ -118,8 +118,8 @@ int main(){
 
   MyVector<double> result(10);
   
-  result= x+x + y*y;
+  result= x + x + y * y;
   
-  std::cout << result << std::endl;
+  std::cout << result << '\n';
   
 }

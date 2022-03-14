@@ -34,8 +34,8 @@ public:
 template<typename T> 
 MyVector<T> operator+ (const MyVector<T>& a, const MyVector<T>& b){
   MyVector<T> result(a.size());
-  for (std::size_t s= 0; s <= a.size(); ++s){
-    result[s]= a[s]+b[s];
+  for (std::size_t s = 0; s <= a.size(); ++s){
+    result[s] = a[s] + b[s];
   }
   return result;
 }
@@ -44,8 +44,8 @@ MyVector<T> operator+ (const MyVector<T>& a, const MyVector<T>& b){
 template<typename T>
 MyVector<T> operator* (const MyVector<T>& a, const MyVector<T>& b){
    MyVector<T> result(a.size());
-  for (std::size_t s= 0; s <= a.size(); ++s){
-    result[s]= a[s]*b[s]; 
+  for (std::size_t s = 0; s <= a.size(); ++s){
+    result[s] = a[s] * b[s]; 
   }
   return result;
 }
@@ -53,23 +53,23 @@ MyVector<T> operator* (const MyVector<T>& a, const MyVector<T>& b){
 // function template for << operator
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const MyVector<T>& cont){  
-  std::cout << std::endl;
-  for (int i=0; i<cont.size(); ++i) {
+  std::cout << '\n';
+  for (int i =0; i < cont.size(); ++i) {
     os << cont[i] << ' ';
   }
-  os << std::endl;
+  os << '\n';
   return os;
 } 
 
 int main(){
 
-  MyVector<double> x(10,5.4);
-  MyVector<double> y(10,10.3);
+  MyVector<double> x(10, 5.4);
+  MyVector<double> y(10, 10.3);
 
   MyVector<double> result(10);
   
-  result= x+x + y*y;
+  result = x + x + y * y;
   
-  std::cout << result << std::endl;
+  std::cout << result << '\n';
   
 }
