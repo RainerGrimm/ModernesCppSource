@@ -9,7 +9,7 @@
 template<std::input_iterator I>
 void advance_(I& i, int n){
     std::cout << "InputIterator used" << '\n';
-    while (n--) ++i;
+    if (n >= 0) { while (n--) ++it; }
 }
 
 template<std::bidirectional_iterator I>

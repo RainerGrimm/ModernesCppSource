@@ -9,7 +9,7 @@
 template <typename InputIterator, typename Distance>                    // (7)
 void advance_impl(InputIterator& i, Distance n, std::input_iterator_tag) {
 	std::cout << "InputIterator used" << '\n'; 
-    while (n--) ++i;
+    if (n >= 0) { while (n--) ++it; }
 }
 
 template <typename BidirectionalIterator, typename Distance>            // (6)  
