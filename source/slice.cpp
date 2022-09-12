@@ -1,22 +1,30 @@
 // slice.cpp
 
-struct Base { 
-  int base{1998};
-}
+#include <iostream>
+#include <typeinfo>
+
+struct Base { };
  
-struct Derived : Base { 
-  int derived{2011};
+struct Derived : Base { };
+
+void displayTypeinfo(const Base& b) {
+    std::cout << typeid(b).name() << '\n'; 
 }
 
-void needB(Base b){
-    // ...
-}
+void needB(Base b) {
+    displayTypeinfo(b);
+};
  
-int main(){
+int main() {
 
-  Derived d;
-  Base b = d;              // (1)
-  Base b2(d);              // (2)
-  needB(d);                // (3)
+    Derived d;
+  
+    Base b = d;          
+    displayTypeinfo(b);      
+  
+    Base b2(d);        
+    displayTypeinfo(b2);     
+  
+    needB(d);                
 
 }

@@ -12,22 +12,22 @@ class Window{
 
 // Concrete Products 
 class DefaultWindow: public Window { 
-    DefaultWindow* create() override { 
+    DefaultWindow* create() { 
         std::cout << "Create DefaultWindow" << '\n';
         return new DefaultWindow();
     } 
-     DefaultWindow* clone() override { 
+     DefaultWindow* clone() { 
         std::cout << "Clone DefaultWindow" << '\n';
         return new DefaultWindow(*this);
     } 
 };
 
 class FancyWindow: public Window { 
-    FancyWindow* create() override { 
+    FancyWindow* create() { 
         std::cout << "Create FancyWindow" << '\n';
         return new FancyWindow();
     } 
-    FancyWindow* clone() override { 
+    FancyWindow* clone() { 
         std::cout << "Clone FancyWindow" << '\n';
         return new FancyWindow(*this);
     } 
