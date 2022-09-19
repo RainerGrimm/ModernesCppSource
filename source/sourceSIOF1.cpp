@@ -1,7 +1,7 @@
 // sourceSIOF1.cpp
 
-int quad(int n) {
+int square(int n) {
     return n * n;
 }
 
-auto staticA  = quad(5); 
+auto staticA  = square(5); 
