@@ -30,7 +30,7 @@ int main(){
 
     std::cout << '\n';
 
-    typedef std::unordered_map<MyInt, int, MyHash, MyEqual> MyIntMap;  // (4)
+    using MyIntMap = std::unordered_map<MyInt, int, MyHash, MyEqual>;  // (4)
 
     std::cout << "MyIntMap: ";
     MyIntMap myMap{{MyInt(-2), -2}, {MyInt(-1), -1}, {MyInt(0), 0}, {MyInt(1), 1}};
