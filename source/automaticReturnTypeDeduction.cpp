@@ -3,7 +3,7 @@
 #include <type_traits>
 
 template <typename T1, typename T2>      // (1)
-typename std::conditional<(sizeof(T1) > sizeof(T2)), T1, T2>::type max1(T1 lhs,T2 rhs) {
+typename std::conditional<(sizeof(T1),sizeof(T2)), T1, T2>::type max1(T1 lhs,T2 rhs) {
     return (lhs > rhs)? lhs : rhs;
 }
 
