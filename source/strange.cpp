@@ -1,67 +1,66 @@
-// strange.cpp (https://github.com/RainerGrimm/ModernesCppSource)
-
 #include <iostream>
 
-struct Strange{ 
+struct Strange { 
   
-  Strange(): p(new int(2011)){}
+    Strange(): p(new int(2011)) {}
     
-  // deep copy 
-  Strange(const Strange& a) : p(new int(*(a.p))){}    // (1)
+    // deep copy 
+    Strange(const Strange& a) : p(new int(*a.p)) {}                 
   
-  // shallow copy
-  Strange& operator=(const Strange& a){               // (2)
-    p = a.p;
-    return *this;
-  }  
+    // shallow copy
+    // equivalent to Strange& operator = (const Strange&) = default;
+    Strange& operator = (const Strange& a) {                                 
+        p = a.p;
+        return *this;
+    }  
    
-  int* p;
+    int* p;
     
 };
 
-int main(){
+int main() {
   
-  std::cout << std::endl;
+    std::cout << '\n';
   
-  std::cout << "Deep copy" << std::endl;
+    std::cout << "Deep copy" << '\n';
   
-  Strange s1;
-  Strange s2(s1);                                     // (3)
+    Strange s1;
+    Strange s2(s1);                                                                                 
   
-  std::cout << "s1.p: " << s1.p << "; *(s1.p): " << *(s1.p) << std::endl;
-  std::cout << "s2.p: " << s2.p << "; *(s2.p): " << *(s2.p) << std::endl;
+    std::cout << "s1.p: " << s1.p << "; *s1.p: " << *s1.p << '\n';
+    std::cout << "s2.p: " << s2.p << "; *s2.p: " << *s2.p << '\n';
   
-  std::cout <<  "*(s2.p) = 2017" << std::endl;
-  *(s2.p) = 2017;                                     // (4)
+    std::cout <<  "*s2.p = 2017" << '\n';
+    *s2.p = 2017;                                                                               
   
-  std::cout << "s1.p: " << s1.p << "; *(s1.p): " << *(s1.p) << std::endl;
-  std::cout << "s2.p: " << s2.p << "; *(s2.p): " << *(s2.p) << std::endl;
+    std::cout << "s1.p: " << s1.p << "; *s1.p: " << *s1.p << '\n';
+    std::cout << "s2.p: " << s2.p << "; *s2.p: " << *s2.p << '\n';
   
-  std::cout << std::endl;
+    std::cout << '\n';
   
-  std::cout << "Shallow copy" << std::endl;
+    std::cout << "Shallow copy" << '\n';
 
-  Strange s3;
-  s3 = s1;                                            // (5)
+    Strange s3;
+    s3 = s1;                                                                                           
   
-  std::cout << "s1.p: " << s1.p << "; *(s1.p): " << *(s1.p) << std::endl;
-  std::cout << "s3.p: " << s3.p << "; *(s3.p): " << *(s3.p) << std::endl;
+    std::cout << "s1.p: " << s1.p << "; *s1.p: " << *s1.p << '\n';
+    std::cout << "s3.p: " << s3.p << "; *s3.p: " << *s3.p << '\n';
   
   
-  std::cout <<  "*(s3.p) = 2017" << std::endl;
-  *(s3.p) = 2017;                                     // (6)
+    std::cout <<  "*s3.p = 2017" << '\n';
+    *s3.p = 2017;                                                                                
   
-  std::cout << "s1.p: " << s1.p << "; *(s1.p): " << *(s1.p) << std::endl;
-  std::cout << "s3.p: " << s3.p << "; *(s3.p): " << *(s3.p) << std::endl;
+    std::cout << "s1.p: " << s1.p << "; *s1.p: " << *s1.p << '\n';
+    std::cout << "s3.p: " << s3.p << "; *s3.p: " << *s3.p << '\n';
   
-  std::cout << std::endl;
+    std::cout << '\n';
   
-  std::cout << "delete s1.p" << std::endl; 
-  delete s1.p;                                        // (7)
+    std::cout << "delete s1.p" << '\n';                              
+    delete s1.p;                                        
   
-  std::cout << "s2.p: " << s2.p << "; *(s2.p): " << *(s2.p) << std::endl;
-  std::cout << "s3.p: " << s3.p << "; *(s3.p): " << *(s3.p) << std::endl;
+    std::cout << "s2.p: " << s2.p << "; *s2.p: " << *s2.p << '\n'; 
+    std::cout << "s3.p: " << s3.p << "; *s3.p: " << *s3.p << '\n';
   
-  std::cout << std::endl;
+    std::cout << '\n';
   
 }
