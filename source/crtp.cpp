@@ -8,19 +8,19 @@ struct Base{
     static_cast<Derived*>(this)->implementation();
   }
   void implementation(){
-    std::cout << "Implementation Base" << std::endl;
+    std::cout << "Implementation Base" << '\n';
   }
 };
 
 struct Derived1: Base<Derived1>{
   void implementation(){
-    std::cout << "Implementation Derived1" << std::endl;
+    std::cout << "Implementation Derived1" << '\n';
   }
 };
 
 struct Derived2: Base<Derived2>{
   void implementation(){
-    std::cout << "Implementation Derived2" << std::endl;
+    std::cout << "Implementation Derived2" << '\n';
   }
 };
 
@@ -31,10 +31,9 @@ void execute(T& base){
     base.interface();
 }
 
-
 int main(){
   
-  std::cout << std::endl;
+  std::cout << '\n';
   
   Derived1 d1;
   execute(d1);
@@ -45,6 +44,6 @@ int main(){
   Derived3 d3;
   execute(d3);
   
-  std::cout << std::endl;
+  std::cout << '\n';
   
 }
