@@ -9,25 +9,29 @@ std::optional<int> getFirst(const std::vector<int>& vec){
   else return std::optional<int>();
 }
 
-int main(){
+int main() {
+
+    std::cout << '\n';
     
-    std::vector<int> myVec{1,2,3};
+    std::vector<int> myVec{1, 2, 3};
     std::vector<int> myEmptyVec;
     
     auto myInt= getFirst(myVec);
     
     if (myInt){
-        std::cout << "*myInt: "  << *myInt << std::endl;
-        std::cout << "myInt.value(): " << myInt.value() << std::endl;
-        std::cout << "myInt.value_or(2017):" << myInt.value_or(2017) << std::endl;
+        std::cout << "*myInt: "  << *myInt << '\n';
+        std::cout << "myInt.value(): " << myInt.value() << '\n';
+        std::cout << "myInt.value_or(2017):" << myInt.value_or(2017) << '\n';
     }
     
-    std::cout << std::endl;
+    std::cout << '\n';
     
     auto myEmptyInt= getFirst(myEmptyVec);
     
     if (!myEmptyInt){
-        std::cout << "myEmptyInt.value_or(2017):" << myEmptyInt.value_or(2017) << std::endl;
+        std::cout << "myEmptyInt.value_or(2017):" << myEmptyInt.value_or(2017) << '\n';
     }
+
+    std::cout << '\n';
+
 }
-   
