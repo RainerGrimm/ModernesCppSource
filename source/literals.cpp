@@ -1,30 +1,32 @@
 // literals.cpp
 
-#include <iostream>
 #include <chrono>
+#include <string>
 
-using namespace std::literals::chrono_literals;
+int main() {
 
-int main(){
+    {
+        using namespace std::literals;
 
-  std::cout << std::endl;
+        std::string cppString = "C++ string literal"s;     
+        auto aMinute = 60s;                                
+        // duration aHour = 0.25h + 15min + 1800s;
+    }
 
-  auto schoolHour= 45min;
+    {
+        using namespace std::chrono;
 
-  auto shortBreak= 300s;
-  auto longBreak= 0.25h;
+        // std::string cppString = "C++ string literal"s;
+        auto aMinute = 60s;
+        duration aHour = 0.25h + 15min + 1800s;            
+    }
 
-  auto schoolWay= 15min;
-  auto homework= 2h;
+    {
+        using namespace std::chrono_literals;
 
-  auto schoolDayInSeconds= 2*schoolWay + 6 * schoolHour + 4 * shortBreak + longBreak + homework;
-  
-  std::cout << "School day in seconds: " << schoolDayInSeconds.count() << std::endl;
-  
-  std::cout << "School day in minutes: " << schoolDayInSeconds.count() / 60 << std::endl;
-  
-  std::cout << "School day in hours: " << schoolDayInSeconds.count() / 3600 << std::endl;
-
-  std::cout << std::endl;
+        // std::string cppString = "C++ String literal"s;
+        auto aMinute = 60s;
+        // duration aHour = 0.25h + 15min + 1800s;
+    }
 
 }
