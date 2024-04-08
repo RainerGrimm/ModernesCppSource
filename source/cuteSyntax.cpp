@@ -1,26 +1,24 @@
 // cuteSyntax.cpp
 
+#include <chrono>
 #include <iostream>
-#include "date.h"
 
 int main() {
 
-    std::cout << std::endl;
+    std::cout << '\n';
 
-    using namespace date;
+    constexpr auto yearMonthDay{std::chrono::year(1966)/6/26};
+    std::cout << yearMonthDay << '\n';
 
-    constexpr auto yearMonthDay{year(1966)/6/26};
-    std::cout << yearMonthDay << std::endl;
+    constexpr auto dayMonthYear{std::chrono::day(26)/6/1966};
+    std::cout << dayMonthYear << '\n';
 
-    constexpr auto dayMonthYear{day(26)/6/1966};
-    std::cout << dayMonthYear << std::endl;
+    constexpr auto monthDayYear{std::chrono::month(6)/26/1966};
+    std::cout << monthDayYear << '\n';
 
-    constexpr auto monthDayYear{month(6)/26/1966};
-    std::cout << monthDayYear << std::endl;
+    constexpr auto yearDayMonth{std::chrono::year(1966)/std::chrono::month(26)/6};  
+    std::cout << yearDayMonth << '\n';
 
-    constexpr auto yearDayMonth{year(1966)/26/6};
-    std::cout << yearDayMonth << std::endl;
-
-    std::cout << std::endl;
+    std::cout << '\n';
 
 }
