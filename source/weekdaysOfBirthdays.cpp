@@ -1,57 +1,58 @@
 // weekdaysOfBirthdays.cpp
 
+#include <chrono>
 #include <cstdlib>
 #include <iostream>
-#include "date.h"
 
 int main() {
 
-    std::cout << std::endl;
-
-    using namespace date;
+    std::cout << '\n';
 
     int y;
     int m;
     int d;
 
-    std::cout << "Year: ";
+    std::cout << "Year: ";                                            // (1)                          
     std::cin >> y;
     std::cout << "Month: ";
     std::cin >> m;
     std::cout << "Day: ";
     std::cin >> d;
 
-    std::cout << std::endl;
+    std::cout << '\n';
 
-    auto birthday = year(y)/month(m)/day(d);
+    auto birthday = std::chrono::year(y)/std::chrono::month(m)/std::chrono::day(d);  // (2)      
 
-    if (not birthday.ok()) {
-        std::cout << birthday << std::endl;
+    if (not birthday.ok()) {                                         // (3)                     
+        std::cout << birthday << '\n';
         std::exit(EXIT_FAILURE);
     }
 
-    std::cout << "Birthday: " << birthday << std::endl;
-    auto birthdayWeekday = year_month_weekday(birthday);
-    std::cout << "Weekday of birthday: " << birthdayWeekday.weekday() << std::endl;
+    std::cout << "Birthday: " << birthday << '\n';
+    auto birthdayWeekday = std::chrono::year_month_weekday(birthday); // (4)  
+    std::cout << "Weekday of birthday: " << birthdayWeekday.weekday() << '\n';
 
-    auto currentDate = year_month_day(floor<days>(std::chrono::system_clock::now()));  
+    auto currentDate = std::chrono::year_month_day(
+        std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now()));  
     auto currentYear = currentDate.year();
     
-    auto age = (int)currentDate.year() - (int)birthday.year();
-    std::cout << "Your age: " << age << std::endl;
+    auto age = static_cast<int>(currentDate.year()) - 
+               static_cast<int>(birthday.year());                     // (5)
+    std::cout << "Your age: " << age << '\n';
 
-    std::cout << std::endl;
+    std::cout << '\n';
 
-    std::cout << "Weekdays for your next 10 birthdays" << std::endl;
+    std::cout << "Weekdays for your next 10 birthdays" << '\n';  
 
-    for (int i = 1, newYear = (int)currentYear; i <= 10;  ++i ) {
-        std::cout << "  Age " <<  ++age << std::endl;
-        auto newBirthday = year(++newYear)/month(m)/day(d);
-        std::cout << "    Birthday: " << newBirthday << std::endl;
+    for (int i = 1, newYear = (int)currentYear; i <= 10;  ++i ) {    // (6)
+        std::cout << "  Age " <<  ++age << '\n';
+        auto newBirthday = std::chrono::year(++newYear)/
+                           std::chrono::month(m)/std::chrono::day(d);
+        std::cout << "    Birthday: " << newBirthday << '\n';
         std::cout << "    Weekday of birthday: " 
-                  << year_month_weekday(newBirthday).weekday() << std::endl;
+                  << std::chrono::year_month_weekday(newBirthday).weekday() << '\n';
     }
 
-    std::cout << std::endl;
+    std::cout << '\n';
 
 }
