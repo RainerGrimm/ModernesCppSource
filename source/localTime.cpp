@@ -1,30 +1,31 @@
 // localTime.cpp
 
-#include "date/tz.h"
+#include <chrono>
 #include <iostream>
 
 int main() {
 
-    std::cout << std::endl;
+    std::cout << '\n';
 
-    using namespace date;
+    using std::chrono::floor;
  
-    std::cout << "UTC  time" << std::endl;
+    std::cout << "UTC  time" << '\n';             
     auto utcTime = std::chrono::system_clock::now();
-    std::cout << "  " << utcTime << std::endl;
-    std::cout << "  " << date::floor<std::chrono::seconds>(utcTime) << '\n':
+    std::cout << "  " << utcTime << '\n';
+    std::cout << "  " << floor<std::chrono::seconds>(utcTime) << '\n';
 
-    std::cout << std::endl;
+    std::cout << '\n';
     
-    std::cout << "Local time" << std::endl;
-    auto localTime = date::make_zoned(date::current_zone(), utcTime);
-    std::cout << "  " << localTime << std::endl;
-    std::cout << "  " << date::floor<std::chrono::seconds>(localTime.get_local_time()) 
-               << std::endl;
+    std::cout << "Local time" << '\n';            
+    auto localTime = std::chrono::zoned_time(std::chrono::current_zone(), utcTime);
 
-    auto offset = localTime.get_info().offset;
-    std::cout << "  UTC offset: "  << offset << std::endl;
+    std::cout << "  " << localTime << '\n';
+    std::cout << "  " << floor<std::chrono::seconds>(localTime.get_local_time()) 
+                      << '\n';
 
-    std::cout << std::endl;
+    auto offset = localTime.get_info().offset;        
+    std::cout << "  UTC offset: "  << offset << '\n';
+
+    std::cout << '\n';
 
 }
