@@ -24,6 +24,11 @@ void measurePerformance(T& t, const std::string& cont){
   std::cout << std::fixed << std::setprecision(10);
 
   auto begin= std::chrono::system_clock::now();
+td::cout << "    Ratio (copy time/move time): " << (copyTime/moveTime) << std::endl;
+  
+  std::cout << std::endl;
+     
+}
   T t1(t);
   auto last=  std::chrono::system_clock::now() - begin;
   std::cout << cont << std::endl;
@@ -37,12 +42,7 @@ void measurePerformance(T& t, const std::string& cont){
   std::cout <<  "    Move: " << moveTime << " sec" << std::endl;
   
   std::cout << std::setprecision(2);
-  std::cout << "    Ratio (copy time/move time): " << (copyTime/moveTime) << std::endl;
-  
-  std::cout << std::endl;
-     
-}
-
+  s
 int main(){
     
     std::cout << std::endl;
